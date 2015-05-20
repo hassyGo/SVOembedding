@@ -18,7 +18,7 @@ int main(int argc, char** argv){
   const double learningRate = atof(argv[2]);
   const int itr = atoi(argv[3]);
   const bool svopn = (atoi(argv[4]) == 1);
-  const int miniBatchSize = 1;
+  const int miniBatchSize = 100;
   const std::string corpus = (std::string)argv[5];
   int numNeg = -1;
   Vocabulary voc;
