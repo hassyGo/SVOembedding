@@ -10,7 +10,6 @@ public:
   enum TYPE{
     SVO_,
     SVOPN_,
-    SVOCON_,
   };
 
   enum SET{

@@ -119,7 +119,7 @@ void LBLM::train(std::vector<Data*>& instance, std::vector<Data*>& type, std::ve
       if (type[j]->type == Data::SVO_){
 	SVO* sample = (SVO*)type[j];
 
-	if (sample->set == Data::TEST){
+	if (sample->set == Data::DEV){
 	  devCount += 1.0;
 	}
 	else {
@@ -143,7 +143,7 @@ void LBLM::train(std::vector<Data*>& instance, std::vector<Data*>& type, std::ve
       else if (type[j]->type == Data::SVOPN_){
 	SVOPN* sample = (SVOPN*)type[j];
 
-	if (sample->set == Data::TEST){
+	if (sample->set == Data::DEV){
 	  devCount += 1.0;
 	}
 	else {

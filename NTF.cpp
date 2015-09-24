@@ -84,7 +84,7 @@ void NTF::train(std::vector<Data*>& sample, std::vector<Data*>& type, std::vecto
       if (type[j]->type == Data::SVO_){
 	SVO* sample = (SVO*)type[j];
 
-	if (sample->set == Data::TEST){
+	if (sample->set == Data::DEV){
 	  devCount += 1.0;
 	}
 	else {
@@ -106,7 +106,7 @@ void NTF::train(std::vector<Data*>& sample, std::vector<Data*>& type, std::vecto
       else if (type[j]->type == Data::SVOPN_){
 	SVOPN* sample = (SVOPN*)type[j];
 
-	if (sample->set == Data::TEST){
+	if (sample->set == Data::DEV){
 	  devCount += 1.0;
 	}
 	else {
