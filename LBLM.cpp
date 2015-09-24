@@ -95,6 +95,7 @@ void LBLM::train(std::vector<Data*>& instance, std::vector<Data*>& type, std::ve
     for (int i = 0; i < (int)instance.size(); ++i){
       if (instance[i]->type == Data::SVO_){
 	this->train((SVO*)instance[i], voc);
+	//this->gradCheck((SVO::SVO*)instance[i]);
       }
       else {
 	this->train((SVOPN*)instance[i], voc);

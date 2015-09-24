@@ -198,7 +198,7 @@ void Vocabulary::readSVOPN(const std::string& fileName, std::vector<Data*>& inst
       }
       this->svoMap[v].at(s)[o] = svopn->svo;
     }
-    
+
     //prep
     it = this->prepIndex.find(prep);
     if (it == this->prepIndex.end()){

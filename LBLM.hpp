@@ -75,6 +75,8 @@ public:
   void gradCheck(SVO* svo);
   void gradCheck(SVOPN* svopn);
 
+  double testSVO(Vocabulary& voc, const std::string& type, const bool ave = false);
+  double testVO(Vocabulary& voc, const bool ave = false);
   void SVOdist(Vocabulary& voc);
   void SVOdist(Vocabulary& voc, int k);
   void VOdist(Vocabulary& voc, int k);
