@@ -1,6 +1,7 @@
 # Learning embeddings for transitive verb phrases
-Kazuma Hashimoto, Pontus Stenetorp, Makoto Miwa, and Yoshimasa Tsuruoka. 2014. Jointly Learning Word Representations and Composition Functions Using Predicate-Argument Structures. In <i>Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing</i>. pages 1544-1555.
-Kazuma Hashimoto and Yoshimasa Tsuruoka. 2015. Learning Embeddings for Transitive Verb Disambiguation by Implicit Tensor Factorization. In <i>Proceedings of the 3rd Workshop on Continuous Vector Space Models and their Compositionality</i>. pages 1-11.
+* Kazuma Hashimoto, Pontus Stenetorp, Makoto Miwa, and Yoshimasa Tsuruoka. 2014. Jointly Learning Word Representations and Composition Functions Using Predicate-Argument Structures. In <i>Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing</i>. pages 1544-1555.
+
+* Kazuma Hashimoto and Yoshimasa Tsuruoka. 2015. Learning Embeddings for Transitive Verb Disambiguation by Implicit Tensor Factorization. In <i>Proceedings of the 3rd Workshop on Continuous Vector Space Models and their Compositionality</i>. pages 1-11.
 
       @InProceedings{hashimoto-EtAl:2014:EMNLP2014,
       author    = {Hashimoto, Kazuma  and  Stenetorp, Pontus  and  Miwa, Makoto  and  Tsuruoka, Yoshimasa},
