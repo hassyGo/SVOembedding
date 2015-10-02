@@ -2,9 +2,8 @@
 
 This repository includes the code to learn embeddings for transitive verb phrases using predicate-argument structures presented in our papers [1, 2].
 You can reproduce the experimental results reported in our CVSC 2015 paper [2].
-More details and the training data used in the paper [2] will follow soon.
 
-The training data is publicly available at <a href="http://www.logos.t.u-tokyo.ac.jp/~hassy/publications/cvsc2015/">our web site</a>.
+The training data used in our paper [2] is publicly available at <a href="http://www.logos.t.u-tokyo.ac.jp/~hassy/publications/cvsc2015/">our web site</a>.
 You can put the training data in the <i>train_data</i> directory and run the code to train SVO embeddings.
 
 [1] Kazuma Hashimoto, Pontus Stenetorp, Makoto Miwa, and Yoshimasa Tsuruoka. 2014. <a href="http://www.logos.t.u-tokyo.ac.jp/~hassy/publications/emnlp2014/">Jointly Learning Word Representations and Composition Functions Using Predicate-Argument Structures<a/>. In <i>Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing</i>. pages 1544-1555.
