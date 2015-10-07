@@ -21,7 +21,7 @@ int main(int argc, char** argv){
   const int itr = atoi(argv[3]);
   const std::string model = (std::string)argv[4];
   const bool svopn = (atoi(argv[5]) == 1);
-  const int miniBatchSize = 1;
+  const int miniBatchSize = 100;
   const std::string corpus = (std::string)argv[6];
   int numNeg = -1;
   Vocabulary voc;
