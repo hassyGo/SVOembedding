@@ -135,7 +135,7 @@ int main(int argc, char** argv){
     }
   }
   
-  //neural tensor factrization
+  //neural tensor factorization
   if (model == "ntf"){
     ntf.init(dim, voc);
     ntf.train(instance, type, type, voc, learningRate, itr, miniBatchSize, numNeg);
