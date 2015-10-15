@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Matrix.hpp"
-#include <boost/iostreams/device/file.hpp>
-#include <boost/iostreams/filter/gzip.hpp>
-#include <boost/iostreams/filtering_stream.hpp>
+#include <string>
+#include <vector>
+#include <fstream>
 
 namespace Utils{
   inline double max(const double& x, const double& y){
@@ -66,13 +66,5 @@ namespace Utils{
 
   inline double stdDev(const Eigen::MatrixXd& input){
     return ::sqrt(((Eigen::MatrixXd)((input.array()-input.sum()/input.rows()).pow(2.0))).sum()/(input.rows()-1));
-  }
-
-  inline boost::iostreams::filtering_istream* gzipIstream(const std::string& fileName){
-    boost::iostreams::filtering_istream* is = new boost::iostreams::filtering_istream();
-  
-    is->push(boost::iostreams::gzip_decompressor());
-    is->push(boost::iostreams::file_source(fileName));
-    return is;
   }
 }

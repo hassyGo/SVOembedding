@@ -1,12 +1,16 @@
 #include "NTF.hpp"
 #include "LBLM.hpp"
-#include <boost/algorithm/string.hpp>
-#include <boost/bind.hpp>
+
+struct sort_pred {
+  bool operator()(const std::pair<int, double> &left, const std::pair<int, double> &right) {
+    return left.second > right.second;
+  }
+};
 
 double calcRho(std::unordered_map<int, double>& rankMap, std::unordered_map<double, std::vector<int> >& tieMap, std::vector<std::pair<int, double> >& output){
   double rho = 0.0;
 
-  std::sort(output.begin(), output.end(), boost::bind(&std::pair<int, double>::second, _1) > boost::bind(&std::pair<int, double>::second, _2));
+  std::sort(output.begin(), output.end(), sort_pred());
   
   for (int i = 0; i < (int)output.size(); ++i){
     double trueRank = 0.0;
@@ -54,7 +58,7 @@ double NTF::testSVO(Vocabulary& voc, const std::string& type, const bool ave){
     double goldScore;
     MatD s1, s2;
     
-    boost::split(res, line, boost::is_space());
+    Utils::split(line, res);
 
     if (type == "grefen"){
       int s = voc.nounIndex.at(res[1]);
@@ -102,7 +106,7 @@ double NTF::testVO(Vocabulary& voc, const bool ave){
     std::vector<std::string> res;
     double goldScore;
     
-    boost::split(res, line, boost::is_space());
+    Utils::split(line, res);
 
     int v1 = voc.verbIndex.at(res[1]);
     int o1 = voc.nounIndex.at(res[0]);
@@ -152,7 +156,7 @@ double LBLM::testSVO(Vocabulary& voc, const std::string& type, const bool ave){
     MatD s1, s2;
     SVO svo;
     
-    boost::split(res, line, boost::is_space());
+    Utils::split(line, res);
 
     if (type == "grefen"){
       int s = voc.nounIndex.at(res[1]);
@@ -204,7 +208,7 @@ double LBLM::testVO(Vocabulary& voc, const bool ave){
     std::vector<std::string> res;
     double goldScore;
     
-    boost::split(res, line, boost::is_space());
+    Utils::split(line, res);
 
     int v1 = voc.verbIndex.at(res[1]);
     int o1 = voc.nounIndex.at(res[0]);
