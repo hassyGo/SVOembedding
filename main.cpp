@@ -52,15 +52,15 @@ int main(int argc, char** argv){
   }
 
   for (int i = 0; i < (int)voc.svoMap.size(); ++i){
-    for (std::unordered_map<int, std::unordered_map<int, SVO*> >::iterator it1 = voc.svoMap[i].begin(); it1 != voc.svoMap[i].end(); ++it1){
-      for (std::unordered_map<int, SVO*>::iterator it2 = it1->second.begin(); it2 != it1->second.end(); ++it2){
+    for (auto it1 = voc.svoMap[i].begin(); it1 != voc.svoMap[i].end(); ++it1){
+      for (auto it2 = it1->second.begin(); it2 != it1->second.end(); ++it2){
 	voc.svoListUniq.push_back(it2->second);
       }
     }
   }
   for (int i = 0; i < (int)voc.svopnMap.size(); ++i){
-    for (std::unordered_map<int, std::unordered_map<SVO*, SVOPN*> >::iterator it1 = voc.svopnMap[i].begin(); it1 != voc.svopnMap[i].end(); ++it1){
-      for (std::unordered_map<SVO*, SVOPN*>::iterator it2 = it1->second.begin(); it2 != it1->second.end(); ++it2){
+    for (auto it1 = voc.svopnMap[i].begin(); it1 != voc.svopnMap[i].end(); ++it1){
+      for (auto it2 = it1->second.begin(); it2 != it1->second.end(); ++it2){
 	voc.svopnListUniq.push_back(it2->second);
       }
     }

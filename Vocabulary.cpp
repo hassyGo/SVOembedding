@@ -106,17 +106,17 @@ void Vocabulary::readSVO(const std::string& fileName, std::vector<Data*>& instan
     }
   }
 
-  for (std::unordered_map<int, int>::iterator it = subjCount.begin(); it != subjCount.end(); ++it){
+  for (auto it = subjCount.begin(); it != subjCount.end(); ++it){
     for (int i = 0; i < (int)pow(it->second, 0.75); ++i){
       this->vsubjList.push_back(it->first);
     }
   }
-  for (std::unordered_map<int, int>::iterator it = objCount.begin(); it != objCount.end(); ++it){
+  for (auto it = objCount.begin(); it != objCount.end(); ++it){
     for (int i = 0; i < (int)pow(it->second, 0.75); ++i){
       this->vobjList.push_back(it->first);
     }
   }
-  for (std::unordered_map<int, int>::iterator it = verbCount.begin(); it != verbCount.end(); ++it){
+  for (auto it = verbCount.begin(); it != verbCount.end(); ++it){
     for (int i = 0; i < (int)pow(it->second, 0.75); ++i){
       this->verbList.push_back(it->first);
     }
@@ -247,12 +247,12 @@ void Vocabulary::readSVOPN(const std::string& fileName, std::vector<Data*>& inst
     this->nullIndex = this->nounIndex.at(Vocabulary::null);
   }
 
-  for (std::unordered_map<int, int>::iterator it = prepCount.begin(); it != prepCount.end(); ++it){
+  for (auto it = prepCount.begin(); it != prepCount.end(); ++it){
     for (int i = 0; i < (int)pow(it->second, 0.75); ++i){
       this->prepList.push_back(it->first);
     }
   }
-  for (std::unordered_map<int, int>::iterator it = pobjCount.begin(); it != pobjCount.end(); ++it){
+  for (auto it = pobjCount.begin(); it != pobjCount.end(); ++it){
     for (int i = 0; i < (int)pow(it->second, 0.75); ++i){
       this->pobjList.push_back(it->first);
     }

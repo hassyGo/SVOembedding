@@ -342,7 +342,7 @@ void LBLM::train(SVOPN* svopn, Vocabulary& voc){
 }
 
 void LBLM::update(const double learningRate, const int exception){
-  for (std::unordered_map<int, int>::iterator it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
+  for (auto it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
     if (it->first == exception){
       this->nounGrad.col(it->first).setZero();
       continue;
@@ -353,32 +353,32 @@ void LBLM::update(const double learningRate, const int exception){
     this->nounVector.col(it->first) -= learningRate*this->nounGrad.col(it->first);
     this->nounGrad.col(it->first).setZero();
   }
-  for (std::unordered_map<int, int>::iterator it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
+  for (auto it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
     this->verbGradHist.col(it->first).array() += this->verbGrad.col(it->first).array().square();
     this->verbGrad.col(it->first).array() /= this->verbGradHist.col(it->first).array().sqrt();
     this->verbVector.col(it->first) -= learningRate*this->verbGrad.col(it->first);
     this->verbGrad.col(it->first).setZero();
   }
-  for (std::unordered_map<int, int>::iterator it = this->prepMap.begin(); it != this->prepMap.end(); ++it){
+  for (auto it = this->prepMap.begin(); it != this->prepMap.end(); ++it){
     this->prepGradHist.col(it->first).array() += this->prepGrad.col(it->first).array().square();
     this->prepGrad.col(it->first).array() /= this->prepGradHist.col(it->first).array().sqrt();
     this->prepVector.col(it->first) -= learningRate*this->prepGrad.col(it->first);
     this->prepGrad.col(it->first).setZero();
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->nounScoreMap.begin(); it != this->nounScoreMap.end(); ++it){
+  for (auto it = this->nounScoreMap.begin(); it != this->nounScoreMap.end(); ++it){
     this->nounScoreGradHist.row(it->first).array() += this->nounScoreGrad.row(it->first).array().square();
     this->nounScoreGrad.row(it->first).array() /= this->nounScoreGradHist.row(it->first).array().sqrt();
     this->nounScoreWeight.row(it->first) -= learningRate*this->nounScoreGrad.row(it->first);
     this->nounScoreGrad.row(it->first).setZero();
   }
-  for (std::unordered_map<int, int>::iterator it = this->verbScoreMap.begin(); it != this->verbScoreMap.end(); ++it){
+  for (auto it = this->verbScoreMap.begin(); it != this->verbScoreMap.end(); ++it){
     this->verbScoreGradHist.row(it->first).array() += this->verbScoreGrad.row(it->first).array().square();
     this->verbScoreGrad.row(it->first).array() /= this->verbScoreGradHist.row(it->first).array().sqrt();
     this->verbScoreWeight.row(it->first) -= learningRate*this->verbScoreGrad.row(it->first);
     this->verbScoreGrad.row(it->first).setZero();
   }
-  for (std::unordered_map<int, int>::iterator it = this->prepScoreMap.begin(); it != this->prepScoreMap.end(); ++it){
+  for (auto it = this->prepScoreMap.begin(); it != this->prepScoreMap.end(); ++it){
     this->prepScoreGradHist.row(it->first).array() += this->prepScoreGrad.row(it->first).array().square();
     this->prepScoreGrad.row(it->first).array() /= this->prepScoreGradHist.row(it->first).array().sqrt();
     this->prepScoreWeight.row(it->first) -= learningRate*this->prepScoreGrad.row(it->first);
@@ -445,7 +445,7 @@ void LBLM::gradCheck(SVO* svo){
 
   printf("\nchecking gradients ...\n");
 
-  for (std::unordered_map<int, int>::iterator it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
+  for (auto it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
     printf("----------- noun %10d -------------\n", it->first);
     for (int i = 0; i < this->nounGrad.rows(); ++i){
       val = this->nounVector.coeff(i, it->first);
@@ -459,7 +459,7 @@ void LBLM::gradCheck(SVO* svo){
     }
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
+  for (auto it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
     printf("----------- verb %10d -------------\n", it->first);
     for (int i = 0; i < this->verbGrad.rows(); ++i){
       val = this->verbVector.coeff(i, it->first);
@@ -473,7 +473,7 @@ void LBLM::gradCheck(SVO* svo){
     }
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->nounScoreMap.begin(); it != this->nounScoreMap.end(); ++it){
+  for (auto it = this->nounScoreMap.begin(); it != this->nounScoreMap.end(); ++it){
     printf("----------- noun score weight %10d -------------\n", it->first);
     for (int i = 0; i < this->nounScoreGrad.cols(); ++i){
       val = this->nounScoreWeight.coeff(it->first, i);
@@ -487,7 +487,7 @@ void LBLM::gradCheck(SVO* svo){
     }
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->verbScoreMap.begin(); it != this->verbScoreMap.end(); ++it){
+  for (auto it = this->verbScoreMap.begin(); it != this->verbScoreMap.end(); ++it){
     printf("----------- verb score weight %10d -------------\n", it->first);
     for (int i = 0; i < this->verbScoreGrad.cols(); ++i){
       val = this->verbScoreWeight.coeff(it->first, i);

@@ -268,7 +268,7 @@ void NTF::trainSVOPN(SVOPN* svopn, Vocabulary& voc){
 
 
 void NTF::update(const double learningRate, const int exception){
-  for (std::unordered_map<int, int>::iterator it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
+  for (auto it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
     if (it->first == exception){
       this->nounGrad.col(it->first).setZero();
       continue;
@@ -282,7 +282,7 @@ void NTF::update(const double learningRate, const int exception){
     this->nounGrad.col(it->first).setZero();
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
+  for (auto it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
     //AdaGrad
     this->vmG[it->first].array() += this->verbGrad[it->first].array().square();
     this->verbGrad[it->first].array() /= this->vmG[it->first].array().sqrt();
@@ -291,7 +291,7 @@ void NTF::update(const double learningRate, const int exception){
     this->verbGrad[it->first].setZero();
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->prepMap.begin(); it != this->prepMap.end(); ++it){
+  for (auto it = this->prepMap.begin(); it != this->prepMap.end(); ++it){
     //AdaGrad
     this->pmG[it->first].array() += this->prepGrad[it->first].array().square();
     this->prepGrad[it->first].array() /= this->pmG[it->first].array().sqrt();
@@ -311,7 +311,7 @@ void NTF::gradCheck(SVO* svo){
 
   printf("\nchecking gradients ...\n");
 
-  for (std::unordered_map<int, int>::iterator it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
+  for (auto it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
     printf("----------- noun %10d -------------\n", it->first);
 
     for (int i = 0; i < this->nounGrad.rows(); ++i){
@@ -326,7 +326,7 @@ void NTF::gradCheck(SVO* svo){
     }
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
+  for (auto it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
     printf("----------- verb %10d -------------\n", it->first);
 
     for (int i = 0; i < this->verbGrad[it->first].rows(); ++i){
@@ -350,7 +350,7 @@ void NTF::gradCheck(SVOPN* svopn){
 
   printf("\nchecking gradients ...\n");
 
-  for (std::unordered_map<int, int>::iterator it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
+  for (auto it = this->nounMap.begin(); it != this->nounMap.end(); ++it){
     printf("----------- noun %10d -------------\n", it->first);
 
     for (int i = 0; i < this->nounGrad.rows(); ++i){
@@ -365,7 +365,7 @@ void NTF::gradCheck(SVOPN* svopn){
     }
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
+  for (auto it = this->verbMap.begin(); it != this->verbMap.end(); ++it){
     printf("----------- verb %10d -------------\n", it->first);
 
     for (int i = 0; i < this->verbGrad[it->first].rows(); ++i){
@@ -382,7 +382,7 @@ void NTF::gradCheck(SVOPN* svopn){
     }
   }
 
-  for (std::unordered_map<int, int>::iterator it = this->prepMap.begin(); it != this->prepMap.end(); ++it){
+  for (auto it = this->prepMap.begin(); it != this->prepMap.end(); ++it){
     printf("----------- prep %10d -------------\n", it->first);
 
     for (int i = 0; i < this->prepGrad[it->first].rows(); ++i){
